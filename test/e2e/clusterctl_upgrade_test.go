@@ -48,11 +48,11 @@ var (
 	providerDockerPrefix  = "docker:v%s"
 )
 
-var _ = Describe("When testing clusterctl upgrades using ClusterClass (v0.5.1=>current) [ClusterClass]", func() {
-	// Upgrade from v0.5.1 to current (current version is built from src).
+var _ = Describe("When testing clusterctl upgrades using ClusterClass (v0.6.0-rehearsal.1=>current) [ClusterClass]", func() {
+	// Upgrade from v0.6.0-rehearsal.1 to current (current version is built from src).
 	var (
 		specName                = "clusterctl-upgrade"
-		version                 = "0.5.1"
+		version                 = "0.6.0-rehearsal.1"
 		k3sCapiUpgradedVersion  string
 		capiCoreVersion         string
 		capiCoreUpgradedVersion string
@@ -62,7 +62,7 @@ var _ = Describe("When testing clusterctl upgrades using ClusterClass (v0.5.1=>c
 		Expect(e2eConfig.Variables).To(HaveKey(CapiCoreVersion))
 		Expect(e2eConfig.Variables).To(HaveKey(CapiCoreCurrentVersion))
 
-		// Will upgrade k3s CAPI from v0.5.1 to k3sCapiUpgradedVersion.
+		// Will upgrade k3s CAPI from v0.6.0-rehearsal.1 to k3sCapiUpgradedVersion.
 		k3sCapiUpgradedVersion = e2eConfig.GetVariableOrEmpty(K3sCapiCurrentVersion)
 
 		// Will init CAPI core/CAPD with CapiCoreVersion, then upgrade to CapiCoreUpgradedVersion.
